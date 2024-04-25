@@ -10,6 +10,8 @@ from tkinter import messagebox, ttk
 
 from essential_data import (
     DEBUG,
+    version,
+    githubUrl,
     requiredDirectory,
     requiredFile,
     backupFile,
@@ -839,9 +841,9 @@ def generate_xml():
                     level_moves_dict = {i: 0 for i in range(1, 101)}
 
                     for move in pokemon_node["levelUpMoves"]:
-                        if len(assigned_level_up_move_ids) < length_all_moves_dict:
-                            move_name = title_case(move["move"]["name"])
-                            move_id = get_move_id_by_name(move_name, all_moves_dict)
+                        move_name = title_case(move["move"]["name"])
+                        move_id = get_move_id_by_name(move_name, all_moves_dict)
+                        if len(assigned_level_up_move_ids) < length_all_moves_dict and move_id not in assigned_level_up_move_ids:
                             move_power = move["move"]["power"]
                             move_type = move["move"]["type"]["name"].title()
 
@@ -927,9 +929,9 @@ def generate_xml():
                     assigned_egg_move_ids = set()
 
                     for move in pokemon_node["eggMoves"]:
-                        if len(assigned_egg_move_ids) < length_all_moves_dict:
-                            move_name = title_case(move["move"]["name"])
-                            move_id = get_move_id_by_name(move_name, all_moves_dict)
+                        move_name = title_case(move["move"]["name"])
+                        move_id = get_move_id_by_name(move_name, all_moves_dict)
+                        if len(assigned_egg_move_ids) < length_all_moves_dict and move_id not in assigned_egg_move_ids:
                             move_power = move["move"]["power"]
                             move_type = move["move"]["type"]["name"].title()
 
@@ -983,9 +985,9 @@ def generate_xml():
                             length_hm_tm_moves_dict += len(category)
 
                     for move in pokemon_node["machineMoves"]:
-                        if len(assigned_tm_hm_ids) < length_hm_tm_moves_dict:
-                            move_name = title_case(move["move"]["name"])
-                            move_id = get_move_id_by_name(move_name, hm_tm_moves_dict)
+                        move_name = title_case(move["move"]["name"])
+                        move_id = get_move_id_by_name(move_name, hm_tm_moves_dict)
+                        if len(assigned_tm_hm_ids) < length_hm_tm_moves_dict and move_id not in assigned_tm_hm_ids:
                             move_power = move["move"]["power"]
                             move_type = move["move"]["type"]["name"].title()
 
@@ -1389,5 +1391,16 @@ expanded_poke_checkbox.grid(row=12, column=0, padx=(40, 0), pady=5, sticky="e")
 
 generate_xml_button = tk.Button(root, text="Generate XML", command=generate_xml)
 generate_xml_button.grid(row=12, column=1, pady=5)
+
+def check_for_update():
+    try:
+        response = requests.get(githubUrl)
+        json_response = response.json()["name"]
+        if version != json_response:
+            messagebox.showinfo("Attention", f"A new version {json_response} is available. Please update.")
+    except Exception as e:
+        messagebox.showerror("Network Error", "Internet required, Please check your internet connection.")
+
+root.after(100, check_for_update)
 
 root.mainloop()

@@ -1,10 +1,14 @@
 DEBUG = False
 
+version = "v1.1.0"
+
 requiredDirectory = "pokemon_xml"
 
 requiredFile = "pokemon_data.py"
 
 backupFile = "pokemon_data_backup.py"
+
+githubUrl = "https://api.github.com/repos/WraithFire/xmlgenerator/releases/latest"
 
 staticUrl = "https://pokedata.pages.dev/data/[id]-[gen].json"
 
@@ -967,8 +971,8 @@ pokemon_ids = {
     "Stakataka": "805-7-Genderless",
     "Blacephalon": "806-7-Genderless",
     "Zeraora": "807-7-Genderless",
-    "Meltan": "808-7-Genderless",
-    "Melmetal": "809-7-Genderless",
+    "Meltan": "808-8-Genderless", # Gen8
+    "Melmetal": "809-8-Genderless", # Gen8
     "Grookey": "810-8-Normal",
     "Thwackey": "811-8-Normal",
     "Rillaboom": "812-8-Normal",

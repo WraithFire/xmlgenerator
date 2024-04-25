@@ -9699,7 +9699,7 @@ queries_array = [
     {
         "pokemonId": 808,
         "pokeGender": "Genderless",
-        "movesetGen": 7,
+        "movesetGen": 8,
         "preEvoIndex": 0,
         "preEvoIndex2": None,
         "pokeID": None,
@@ -9711,7 +9711,7 @@ queries_array = [
     {
         "pokemonId": 809,
         "pokeGender": "Genderless",
-        "movesetGen": 7,
+        "movesetGen": 8,
         "preEvoIndex": 0,
         "preEvoIndex2": None,
         "pokeID": None,

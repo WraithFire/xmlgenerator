@@ -78,3 +78,16 @@ Place the `queries_data.py` alongside the executable or `pokemon.py` if you are 
 Open the generator and select the appropriate patches applied. Then, click on "Generate XML," and it will create XML files for all the Pokémon.
 
 **Warning:** There are over 1300 of them, so be prepared!
+
+## Contributing
+
+Contributions are welcome!
+If you have ideas, improvements, or bug fixes:
+
+-   Open an **issue**
+-   Or submit a **pull request**
+
+## License
+
+This project is licensed under the **GNU General Public License v3.0**.
+See the [LICENSE](LICENSE) file for full terms.
